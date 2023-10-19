@@ -6,8 +6,11 @@ public class Student {
 
     //constructor
     public Student(String StudentName, int StudentId, double StudentGpa) {
+
+
     }
     public String toString() {
+
 
 
         return studentName + " (" + studentId + "): " + studentGpa; //Name (ID): GPA
