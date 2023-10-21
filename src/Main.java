@@ -9,7 +9,11 @@ class Main {
                 case 1 -> {
                     createStudent();
                 }
-                case 2 -> Course.listAllStudents();
+                case 2 -> {
+                    Course.listAllStudents();
+                    userChoice = 0;
+                    menu();
+                }
                 case 3 -> System.out.println("Find by name");
                 case 4 -> System.out.println("Find above");
                 case 5 -> {
