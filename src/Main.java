@@ -5,30 +5,32 @@ class Main {
     public static void main(String[] args) {
         while(!exit) {
             int userChoice = menu();
-            switch (userChoice) {
-                case 1 -> {
-                    createStudent();
-                }
-                case 2 -> {
+            if (userChoice == 0) {
+                menu();
+            }
+            if (userChoice == 1) { //change to a readable variable\
+                createStudent();
+                userChoice = 0;
+            }
+            if (userChoice == 2) {
                     Course.listAllStudents();
                     userChoice = 0;
-                    menu();
-                }
-                case 3 -> System.out.println("Find by name");
-                case 4 -> System.out.println("Find above");
-                case 5 -> {
-                    exit = true;
-                    System.out.print("Now exiting.");
-                }
+            }
+            if (userChoice == 3) {
+                System.out.println("Find by name");
+            }
+            if (userChoice == 4) {
+                System.out.println("Find above");
+            }
+            if (userChoice == 5) {
+                System.out.print("Now exiting.");
+                exit = true;
+            }
 
             }
             System.exit(0);
-
-
-
         }
 
-    }
     public static int menu() {
         int selection;
 

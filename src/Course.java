@@ -15,8 +15,9 @@ public class Course {
     }
 
     public static void listAllStudents() {
+        System.out.println();
         for (int i = 0; i < studentList.size(); i++) {
-            System.out.println(studentList.get(i));
+            System.out.println(i + ". " + studentList.get(i));
         }
 
     }
@@ -28,6 +29,14 @@ public class Course {
 
     public static void findAllStudentAboveGrade() {
         //empty for now
+    }
+    
+    public static void addStudent(Student student) {
+        //add the student to the course array
+        studentList.add(student);
+        System.out.println(studentList);
+        
+        
     }
 
 
