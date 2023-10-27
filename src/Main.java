@@ -8,13 +8,13 @@ class Main {
             if (userChoice == 0) {
                 menu();
             }
-            if (userChoice == 1) { //change to a readable variable\
+            if (userChoice == 1) {
                 createStudent();
                 userChoice = 0;
             }
             if (userChoice == 2) {
-                    Course.listAllStudents();
-                    userChoice = 0;
+                Course.listAllStudents();
+                userChoice = 0;
             }
             if (userChoice == 3) {
                 System.out.println("Find by name");
@@ -36,6 +36,55 @@ class Main {
 
 
         Scanner userInput = new Scanner(System.in);
+        printMenu();
+        while (!userInput.hasNextInt()) {
+            paddedPrompt("not a valid input");
+            userInput.next();
+            printMenu();
+        }
+        selection = userInput.nextInt();
+        return selection;
+    }
+    public static void createStudent() { //good GOD this method is ugly
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Input the student’s name: ");
+          String studentName = in.next();
+
+        System.out.print("Input the student’s ID: ");
+            while (!in.hasNextInt()) {
+            System.out.println("invalid ID");
+            in.next();
+            System.out.print("Input the student’s ID: ");
+            }
+          int studentId = in.nextInt();
+
+        System.out.print("Input the student’s GPA: ");
+            while (!in.hasNextInt()) {
+                in.next();
+                paddedPrompt("invalid GPA");
+                System.out.print("Input the student’s GPA: ");
+            }
+                double studentGpa = in.nextDouble();
+            while (studentGpa > 4 || studentGpa < 0) {
+                paddedPrompt("invalid GPA, must be 0-4");
+                System.out.print("Input the student’s GPA: ");
+                studentGpa = in.nextDouble();
+            }
+
+        Student newStudent = new Student(studentName,studentId,studentGpa);
+        Course.add(newStudent);
+        System.out.print("\nStudent " + studentName + " added to course.\n");
+
+    }
+
+    //helper methods
+    public static void paddedPrompt(String prompt) {
+        System.out.println();
+        System.out.println(prompt);
+        System.out.println();
+}
+    public static void printMenu() {
         System.out.println();
         System.out.println("Menu:");
         System.out.println("------------------------------------");
@@ -46,25 +95,6 @@ class Main {
         System.out.println("5. Quit");
         System.out.print("   Enter choice: ");
 
-
-        selection = userInput.nextInt(); /* needs validation */
-        return  selection;
     }
-    public static void createStudent() { /*validate with valid input */
-        Scanner in = new Scanner(System.in);
-        System.out.print("Input the student’s name: ");
-         String studentName = in.next();
-        System.out.print("Input the student’s ID: ");
-         int studentId = in.nextInt();
-        System.out.print("Input the student’s GPA: ");
-         double studentGpa = in.nextDouble();
-        Student newStudent = new Student(studentName,studentId,studentGpa);
-        Course.add(newStudent);
-        System.out.print("Student " + studentName + " added to course.");
-
-
-    }
-
-
 
 }
