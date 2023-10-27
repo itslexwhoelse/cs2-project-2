@@ -16,6 +16,8 @@ public class Course {
 
     public static void listAllStudents() {
         System.out.println();
+        System.out.println("Students enrolled: ");
+
         for (int i = 0; i < studentList.size(); i++) {
             System.out.println(i + ". " + studentList.get(i));
         }

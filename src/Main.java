@@ -60,13 +60,13 @@ class Main {
           int studentId = in.nextInt();
 
         System.out.print("Input the student’s GPA: ");
-            while (!in.hasNextInt()) {
+            while (!in.hasNextDouble()) {
                 in.next();
                 paddedPrompt("invalid GPA");
                 System.out.print("Input the student’s GPA: ");
             }
                 double studentGpa = in.nextDouble();
-            while (studentGpa > 4 || studentGpa < 0) {
+            if (studentGpa >= 4.0 || studentGpa <= 0.0) {
                 paddedPrompt("invalid GPA, must be 0-4");
                 System.out.print("Input the student’s GPA: ");
                 studentGpa = in.nextDouble();
