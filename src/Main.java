@@ -23,7 +23,8 @@ class Main {
                 userChoice = 0;
             }
             if (userChoice == 4) {
-                System.out.println("Find above");
+                Course.findAllStudentAboveGrade();
+                userChoice = 0;
             }
             if (userChoice == 5) {
                 System.out.print("Now exiting.");

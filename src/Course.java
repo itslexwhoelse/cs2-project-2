@@ -31,7 +31,7 @@ public class Course {
         System.out.print("Input student name: ");
         String studentName = in.next();
 
-        for (Student student : studentList) {
+        for (Student student : studentList) { //i still don't really get advanced for loops
             if(student.getStudentName().equals(studentName)) {
 
                 System.out.println("student " + student.getStudentName() + " found");
@@ -45,7 +45,21 @@ public class Course {
     }
 
     public static void findAllStudentAboveGrade() {
-        //empty for now
+        //search every student in list
+        //if the student has a gpa above X put them in a list
+        //return that list
+        // if none with that gpa return "there are no students with that grade"
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input GPA: ");
+        if (!in.hasNextDouble()) {
+            System.out.println("invalid input");
+        }
+        double minGpa = in.nextDouble();
+        for (Student student : studentList) {
+            if (student.getStudentGpa() > minGpa){
+                System.out.println(student.toString());
+            }
+        }
     }
     
     public static void addStudent(Student student) {
