@@ -52,17 +52,18 @@ class Main {
         return selection;
     }
     public static void populate() { //helper method, populates the course with preset students for testing
+        Scanner in = new Scanner(System.in);
         System.out.print("enter amount: ");
+        if (!in.hasNextInt()) {
+            System.out.println("not valid");
+        }
+            int amountOfStudents = in.nextInt();
+        for (int i = 0; i <= amountOfStudents; i++) {
+            Student student = new Student("student"+i,i,randomGpa());
+            Course.add(student);
 
-        Student student1 = new Student("student1",0,randomGpa());
-        Course.add(student1);
-        Student student2 = new Student("student2",1,randomGpa());
-        Course.add(student2);
-        Student student3 = new Student("student3",2,randomGpa());
-        Course.add(student3);
-        Student student4 = new Student("student4",3,randomGpa());
-        Course.add(student4);
-
+        }
+        System.out.println("added " + amountOfStudents + " students");
     }
     public static double randomGpa() {
         double max = 4.0;
