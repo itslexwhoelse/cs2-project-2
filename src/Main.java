@@ -1,5 +1,6 @@
 import javax.swing.plaf.IconUIResource;
 import java.util.Scanner;
+import java.util.Random;
 
 class Main {
     private  static  boolean exit = false;
@@ -51,25 +52,7 @@ class Main {
         selection = userInput.nextInt();
         return selection;
     }
-    public static void populate() { //helper method, populates the course with preset students for testing
-        Scanner in = new Scanner(System.in);
-        System.out.print("enter amount: ");
-        if (!in.hasNextInt()) {
-            System.out.println("not valid");
-        }
-            int amountOfStudents = in.nextInt();
-        for (int i = 0; i <= amountOfStudents; i++) {
-            Student student = new Student("student"+i,i,randomGpa());
-            Course.add(student);
 
-        }
-        System.out.println("added " + amountOfStudents + " students");
-    }
-    public static double randomGpa() {
-        double max = 4.0;
-        double min = 1.0;
-        return Math.random()*(max - min)+min;
-    }
     public static void createStudent() { //good GOD this method is ugly
         Scanner in = new Scanner(System.in);
 
@@ -104,12 +87,36 @@ class Main {
     }
 
     //helper methods
+    public static double randomGpa() { //returns a random gpa not optimal output but this is just for testing purposes.
+        double max = 4.0;
+        double min = 1.0;
+
+        Random random = new Random();
+        double randomDouble = random.nextDouble()*(max - min)+min;
+        return randomDouble;
+    }
+
+    public static void populate() { //helper method, populates the course with preset students for testing
+        Scanner in = new Scanner(System.in);
+        System.out.print("enter amount: ");
+        if (!in.hasNextInt()) {
+            System.out.println("not valid");
+        }
+        int amountOfStudents = in.nextInt();
+        for (int i = 0; i <= amountOfStudents; i++) {
+            Student student = new Student("student"+i,i,randomGpa());
+            Course.add(student);
+
+        }
+        System.out.println("added " + amountOfStudents + " students");
+    }
+
     public static void paddedPrompt(String prompt) {
         System.out.println();
         System.out.println(prompt);
         System.out.println();
 }
-    public static void printMenu() {
+    public static void printMenu() { //do i really need to explain this one?
         System.out.println();
         System.out.println("Menu:");
         System.out.println("------------------------------------");
