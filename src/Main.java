@@ -1,3 +1,4 @@
+import javax.swing.plaf.IconUIResource;
 import java.util.Scanner;
 
 class Main {
@@ -17,7 +18,8 @@ class Main {
                 userChoice = 0;
             }
             if (userChoice == 3) {
-                System.out.println("Find by name");
+                Course.findStudentByName();
+                userChoice = 0;
             }
             if (userChoice == 4) {
                 System.out.println("Find above");
@@ -25,6 +27,10 @@ class Main {
             if (userChoice == 5) {
                 System.out.print("Now exiting.");
                 exit = true;
+            }
+            if (userChoice == 6) {
+                populate();
+                userChoice = 0;
             }
 
             }
@@ -44,6 +50,24 @@ class Main {
         }
         selection = userInput.nextInt();
         return selection;
+    }
+    public static void populate() { //helper method, populates the course with preset students for testing
+        System.out.print("enter amount: ");
+
+        Student student1 = new Student("student1",0,randomGpa());
+        Course.add(student1);
+        Student student2 = new Student("student2",1,randomGpa());
+        Course.add(student2);
+        Student student3 = new Student("student3",2,randomGpa());
+        Course.add(student3);
+        Student student4 = new Student("student4",3,randomGpa());
+        Course.add(student4);
+
+    }
+    public static double randomGpa() {
+        double max = 4.0;
+        double min = 1.0;
+        return Math.random()*(max - min)+min;
     }
     public static void createStudent() { //good GOD this method is ugly
         Scanner in = new Scanner(System.in);

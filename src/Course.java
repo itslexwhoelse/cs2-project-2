@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Arrays;
 public class Course {
     //Instance Vars
@@ -26,7 +27,21 @@ public class Course {
 
 
     public static void findStudentByName() {
-        //empty for now
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input student name: ");
+        String studentName = in.next();
+
+        for (Student student : studentList) {
+            if(student.getStudentName().equals(studentName)) {
+                System.out.println("that student exists");
+                System.out.println("student " + student.getStudentName() + " found");
+                System.out.println(student.toString());
+                break;
+            } else {
+                System.out.println("that doesn't exist");
+
+            }
+        }
     }
 
     public static void findAllStudentAboveGrade() {

@@ -28,8 +28,5 @@ public class Student {
         return studentName + " (" + studentId + "): " + studentGpa; //Name (ID): GPA
     }
 
-    // then make your toString method.
 
-
-    // we may need to add to it later.
 }
