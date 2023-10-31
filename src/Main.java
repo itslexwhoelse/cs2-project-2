@@ -27,12 +27,12 @@ class Main {
                 userChoice = 0;
             }
             if (userChoice == 5) {
-                System.out.print("Now exiting.");
-                exit = true;
-            }
-            if (userChoice == 6) {
                 populate();
                 userChoice = 0;
+            }
+            if (userChoice == 6) {
+                System.out.print("Now exiting.");
+                exit = true;
             }
 
             }
@@ -99,7 +99,7 @@ class Main {
 
     public static void populate() { //helper method, populates the course with preset students for testing
         Scanner in = new Scanner(System.in);
-        System.out.print("enter amount: ");
+        System.out.print("Enter amount of students to generate: ");
         if (!in.hasNextInt()) {
             System.out.println("not valid");
         }
@@ -125,7 +125,8 @@ class Main {
         System.out.println("2. List all students");
         System.out.println("3. Find student (by name)");
         System.out.println("4. Find all students above grade");
-        System.out.println("5. Quit");
+        System.out.println("5. Populate with test students");
+        System.out.println("6. Quit");
         System.out.print("   Enter choice: ");
 
     }
