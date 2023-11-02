@@ -25,22 +25,19 @@ public class Course {
 
     }
 
-
-    public static void findStudentByName() { //this method is broken for now
-        Scanner in = new Scanner(System.in);
-        System.out.print("Input student name: ");
-        String studentName = in.next();
-
-        for (Student student : studentList) { //i still don't really get advanced for loops
-            if(student.getStudentName().equals(studentName)) {
-
-                System.out.println("student " + student.getStudentName() + " found");
-                System.out.println(". " + student.toString());
-                break;
-            } else {
-                System.out.println("that doesn't exist");
-
+    public static void findStudentByName() {
+        Scanner sc = new Scanner(System.in);
+        boolean studentFound = false;
+        System.out.print("Input in the name: ");
+        String studentName = sc.next();
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getStudentName().equals(studentName)) {
+                System.out.println(i + ". " + studentList.get(i));
+                studentFound = true;
             }
+        }
+        if (!studentFound) {
+            System.out.println("There are no students with that name");
         }
     }
 
